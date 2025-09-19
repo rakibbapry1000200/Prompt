@@ -590,8 +590,9 @@
         const urlParams = new URLSearchParams(window.location.search);
         const postIdFromUrl = urlParams.get('post');
 
+        // এই অংশটি পরিবর্তন করা হয়েছে
         apkIcon.addEventListener('click', () => {
-            window.open("https://rakibbapry1000200.github.io/Mood-s-Apk/index.html", "_blank");
+            window.location.href = "https://rakibbapry1000200.github.io/Mood-s-Apk/index.html";
         });
 
         async function loadContent() {
@@ -843,4 +844,4 @@
         });
     </script>
 </body>
-</html>
+        </html>
