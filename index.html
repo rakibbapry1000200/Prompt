@@ -50,10 +50,9 @@
             top: 0;
             z-index: 50;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease-in-out; /* Add this line */
+            transition: transform 0.3s ease-in-out;
         }
         
-        /* Add this new class */
         .header-container.header-hidden {
             transform: translateY(-100%);
         }
@@ -101,8 +100,8 @@
         /* Search */
         .search-wrap {
             position: relative;
-            flex: 1; /* Allows search bar to take available space */
-            order: 2; /* Ensures search bar is in the middle */
+            flex: 1;
+            order: 2;
         }
 
         .search {
@@ -170,7 +169,7 @@
             border: none;
             color: #fff;
             transition: color 0.3s;
-            order: 3; /* Ensures menu button is last */
+            order: 3;
         }
         
         .menuBtn:hover {
@@ -590,7 +589,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const postIdFromUrl = urlParams.get('post');
 
-        // এই অংশটি পরিবর্তন করা হয়েছে
         apkIcon.addEventListener('click', () => {
             window.location.href = "https://rakibbapry1000200.github.io/Mood-s-Apk/index.html";
         });
@@ -729,7 +727,7 @@
                 shareBtn.innerHTML = '<i class="fa fa-share-alt"></i>';
                 shareBtn.onclick = async (e) => {
                     e.stopPropagation();
-                    const postUrl = `${window.location.origin}/index.html?post=${p.id}`;
+                    const postUrl = `${window.location.origin}${window.location.pathname}?post=${p.id}`; // Updated link generation
                     await navigator.clipboard.writeText(postUrl);
                     showNotification('Link copied successfully!');
                 };
@@ -827,16 +825,13 @@
             loadContent().then(() => initCarousel());
         });
         
-        // New JavaScript for scroll effect
         let lastScrollY = window.scrollY;
         const header = document.querySelector('.header-container');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                // Scrolling down, hide the header
                 header.classList.add('header-hidden');
             } else if (window.scrollY < lastScrollY) {
-                // Scrolling up, show the header
                 header.classList.remove('header-hidden');
             }
             
@@ -844,4 +839,4 @@
         });
     </script>
 </body>
-        </html>
+</html>
